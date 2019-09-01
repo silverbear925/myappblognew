@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<%# <h1>Blog</h1> %>
+
+<table>
+  <thead>
+    <tr>
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>myblog</title>
+  <style type="text/css" href="./style.css"></style>
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+<body>
+
+<nav class= "#4fc3f7 light-blue lighten-2">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">ブログ</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><%= link_to '新規投稿', new_blog_path %></li>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li> 
+    </ul>
+  </div>
+</nav>
+
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
+      <%# <th>Name</th>
+      <th>Titile</th>
+      <th>Body</th>
+      <th colspan="3"></th> %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+      <div class="row">
+    <div class="col s12 m7">
+      <div class="card #e0f7fa cyan lighten-5">
+        <div class="card-content black-text">
+          <span class="card-title"><%= blog.titile %></span>
+          <p><%= blog.body %></p>
+          <p><%= blog.name %></p>
+        </div>
+        <div class="card-action">
+          <a href="#"><%= link_to 'Show', blog %></a>
+          <a href="#"><%= link_to 'Edit', edit_blog_path(blog) %></a>
+          <a href="#"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
