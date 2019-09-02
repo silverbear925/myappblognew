@@ -59,11 +59,11 @@
         </div>
         <div class="card-action">
           <% if user_signed_in? %>
-          <a href="#"><%= link_to 'Show', blog %></a>
-          <a href="#"><%= link_to 'Edit', edit_blog_path(blog) %></a>
-          <a href="#"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          <a href="#"><%= link_to '詳細', blog %></a>
+          <a href="#"><%= link_to '編集', edit_blog_path(blog) %></a>
+          <a href="#"><%= link_to '削除', blog, method: :delete, data: { confirm: 'Are you sure?' } %></a>
           <% else %>
-          <a href="#"><%= link_to 'Show', blog %></a>
+          <a href="#"><%= link_to '詳細', blog %></a>
           <% end %>
 
         </div>
