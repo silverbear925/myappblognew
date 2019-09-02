@@ -67,6 +67,10 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def create_params
+      params.require(:bolg).permit(:rate, :blog).merge(product_id: params[:product_id], user_id: current_user.id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:name, :titile, :body)
