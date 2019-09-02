@@ -24,9 +24,14 @@
   <div class="nav-wrapper">
     <a href="#" class="brand-logo">日記</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <% if user_signed_in? %>
       <li><%= link_to '新規投稿', new_blog_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       <li><%= link_to "ログイン", new_user_session_path %></li> 
+    <% else %>
+      <li><%= link_to "ログイン", new_user_session_path %></li> 
+    <% end %>
+
     </ul>
   </div>
 </nav>
@@ -53,10 +58,14 @@
           <p><%= blog.name %></p>
         </div>
         <div class="card-action">
+          <% if user_signed_in? %>
           <a href="#"><%= link_to 'Show', blog %></a>
           <a href="#"><%= link_to 'Edit', edit_blog_path(blog) %></a>
           <a href="#"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-         
+          <% else %>
+          <a href="#"><%= link_to 'Show', blog %></a>
+          <% end %>
+
         </div>
       </div>
     </div>
